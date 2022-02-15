@@ -11,6 +11,7 @@ template Token
         issued: Time
         lastPrice: Decimal
         currency: Text
+        royaltyRate: Decimal
     where
         signatory issuer, userAdmin
     
@@ -25,7 +26,7 @@ template Token
 template TokenOffer
     with
         issuer: Party
-        owner: Party
+        owner: Party 
         description: Text
         userAdmin: Party -- makes sure issuer and owner are legit
         issued: Time
@@ -33,11 +34,12 @@ template TokenOffer
         price: Decimal
         lastPrice: Decimal
         currency: Text
+        royaltyRate: Decimal
     where
         signatory issuer, userAdmin, owner
 
         controller newOwner can
-          AcceptToken : (ContractId Token, ContractId Payable)
+          AcceptToken : (ContractId Token, ContractId Payable, ContractId Payable)
             do
                 fromNewOwnerToOwner <- create Payable
                     with
@@ -52,8 +54,16 @@ template TokenOffer
                         owner = newOwner
                         lastPrice = price
                         ..
+
+                royaltyPayment <- create Payable
+                    with 
+                        from = newOwner
+                        to = issuer
+                        amount = price * royaltyRate
+                        currency
+                        reference = "Royalty for `" <> description <> "`."
                 
-                return (newToken, fromNewOwnerToOwner)
+                return (newToken, fromNewOwnerToOwner, royaltyPayment)
 
               
         
