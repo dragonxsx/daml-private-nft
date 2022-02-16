@@ -42,7 +42,7 @@ template TokenOffer
         maintainer key._2
 
         controller newOwner, userAdmin can
-          AcceptToken : (ContractId Token, ContractId Payable, ContractId Payable)
+          AcceptToken : (ContractId Token, ContractId Payable, Optional (ContractId Payable))
             do
                 fromNewOwnerToOwner <- create Payable
                     with
@@ -58,15 +58,17 @@ template TokenOffer
                         lastPrice = price
                         ..
 
-                royaltyPayment <- create Payable
-                    with 
-                        from = newOwner
-                        to = issuer
-                        amount = price * royaltyRate
-                        currency
-                        reference = "Royalty for `" <> description <> "`."
+                condRoyaltyPayment <- if owner == issuer
+                    then return None
+                    else Some <$> create Payable
+                        with 
+                            from = newOwner
+                            to = issuer
+                            amount = price * royaltyRate
+                            currency
+                            reference = "Royalty for `" <> description <> "`."
                 
-                return (newToken, fromNewOwnerToOwner, royaltyPayment)
+                return (newToken, fromNewOwnerToOwner, condRoyaltyPayment)
 
               
         

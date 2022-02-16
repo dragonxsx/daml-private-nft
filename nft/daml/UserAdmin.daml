@@ -53,13 +53,13 @@ template Owner
         signatory userAdmin
     
         controller owner can
-            nonconsuming AcceptTokenAsNewOwner: (ContractId Token, ContractId Payable, ContractId Payable)
+            nonconsuming AcceptTokenAsNewOwner: (ContractId Token, ContractId Payable, Optional (ContractId Payable))
                 with
                     offerId: ContractId TokenOffer
                 do
                     exercise offerId AcceptToken
 
-            nonconsuming AcceptTokenByKey: (ContractId Token, ContractId Payable, ContractId Payable)
+            nonconsuming AcceptTokenByKey: (ContractId Token, ContractId Payable, Optional (ContractId Payable))
                 with
                     issuer: Party
                     currentOwner: Party
