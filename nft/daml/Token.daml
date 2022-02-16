@@ -38,7 +38,7 @@ template TokenOffer
     where
         signatory issuer, userAdmin, owner
 
-        controller newOwner can
+        controller newOwner, userAdmin can
           AcceptToken : (ContractId Token, ContractId Payable, ContractId Payable)
             do
                 fromNewOwnerToOwner <- create Payable
