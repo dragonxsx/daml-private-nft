@@ -9,6 +9,7 @@ template Issuer
         issuer: Party
     where
         signatory userAdmin
+        ensure userAdmin /= issuer
 
         controller issuer can
           nonconsuming MintToken : ContractId Token
