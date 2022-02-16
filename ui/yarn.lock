@@ -1161,8 +1161,8 @@
 "@daml.js/nft-0.0.1@file:../nft/daml.js/nft-0.0.1":
   version "1.18.1"
   dependencies:
-    "@daml.js/40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7" "file:../../../../../../Library/Caches/Yarn/v6/npm-@daml-js-nft-0-0-1-1.18.1-87c920c6-e4ed-4482-8c6b-0ecbc69de9a2-1645038175276/node_modules/@daml.js/40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7"
-    "@daml.js/d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662" "file:../../../../../../Library/Caches/Yarn/v6/npm-@daml-js-nft-0-0-1-1.18.1-87c920c6-e4ed-4482-8c6b-0ecbc69de9a2-1645038175276/node_modules/@daml.js/d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662"
+    "@daml.js/40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7" "file:../../../../../../Library/Caches/Yarn/v6/npm-@daml-js-nft-0-0-1-1.18.1-c67a6cd5-a35b-4426-b65f-c7730bd776c4-1645041293070/node_modules/@daml.js/40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7"
+    "@daml.js/d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662" "file:../../../../../../Library/Caches/Yarn/v6/npm-@daml-js-nft-0-0-1-1.18.1-c67a6cd5-a35b-4426-b65f-c7730bd776c4-1645041293070/node_modules/@daml.js/d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662"
     "@mojotech/json-type-validation" "^3.1.0"
 
 "@daml/ledger@1.18.1":
