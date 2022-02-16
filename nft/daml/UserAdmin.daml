@@ -58,6 +58,14 @@ template Owner
                     offerId: ContractId TokenOffer
                 do
                     exercise offerId AcceptToken
+
+            nonconsuming AcceptTokenByKey: (ContractId Token, ContractId Payable, ContractId Payable)
+                with
+                    issuer: Party
+                    currentOwner: Party
+                    description: Text
+                do
+                    exerciseByKey @TokenOffer (issuer, currentOwner, description) AcceptToken
     
         controller userAdmin can
           RevokeOwnerRights : ()
