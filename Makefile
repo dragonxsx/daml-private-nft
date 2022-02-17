@@ -7,6 +7,7 @@ build:
 deploy: build
 	mkdir -p deploy
 	cp nft/.daml/dist/*.dar deploy
+	cd ui && zip -r ../deploy/daml-ui-template.zip build
 
 clean:
 	cd nft && rm -rf .daml
